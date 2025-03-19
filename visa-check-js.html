@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visa Checker</title>
+    <script>
+        function checkVisaRequirement() {
+            const country = document.getElementById('country').value;
+            let message = '';
+
+            switch (country) {
+                case 'USA':
+                    message = 'Visa required for most applicants.';
+                    break;
+                case 'Canada':
+                    message = 'Visa required unless you have an eTA.';
+                    break;
+                case 'India':
+                    message = 'Visa required before travel.';
+                    break;
+                case 'UK':
+                    message = 'Visa depends on the duration of stay.';
+                    break;
+                case 'Australia':
+                    message = 'eVisa available for eligible travelers.';
+                    break;
+                default:
+                    message = 'Please select a country.';
+                    break;
+            }
+
+            document.getElementById('result').innerText = message;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Visa Requirement Checker</h2>
+
+    <label for="country">Select your country:</label>
+    <select id="country">
+        <option value="">-- Select Country --</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="India">India</option>
+        <option value="UK">United Kingdom</option>
+        <option value="Australia">Australia</option>
+    </select>
+
+    <button onclick="checkVisaRequirement()">Check Visa</button>
+
+    <p id="result" style="font-weight: bold; color: blue; margin-top: 10px;"></p>
+
+</body>
+
+</html>
