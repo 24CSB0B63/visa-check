@@ -5,9 +5,94 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Visa Checker</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: url("https://wallpapers.com/images/featured/airplane-k2bvoms91kvb0tfp.jpg");
+        }
+
+        .visa-container {
+            background-color: #ffffffa4;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.066);
+            max-width: 60%;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {    
+            font-size: 60px;
+            color: #333;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, rgba(255, 78, 78, 0.642), rgba(81, 255, 81, 0.552), rgba(69, 69, 255, 0.68));
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: block;
+            color: #555;
+        }
+
+        select {
+            width: 80%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        select:focus {
+            width: 80%;
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #007bff;
+            font-size: 1.1rem;
+        }
+    </style>
     <script>
         function checkVisaRequirement() {
-            const country = document.getElementById('country').value;
+            let country = document.getElementById('country').value;
             let message = '';
 
             switch (country) {
@@ -37,23 +122,21 @@
 </head>
 
 <body>
-
-    <h2>Visa Requirement Checker</h2>
-
-    <label for="country">Select your country:</label>
-    <select id="country">
-        <option value="">-- Select Country --</option>
-        <option value="USA">USA</option>
-        <option value="Canada">Canada</option>
-        <option value="India">India</option>
-        <option value="UK">United Kingdom</option>
-        <option value="Australia">Australia</option>
-    </select>
-
-    <button onclick="checkVisaRequirement()">Check Visa</button>
-
-    <p id="result" style="font-weight: bold; color: blue; margin-top: 10px;"></p>
-
+    <div class="visa-container">
+        <h1>Visa Requirement Checker</h1>
+        <br>
+        <label for="country">Select your country:</label>
+        <select id="country">
+            <option value="">-- Select Country --</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="India">India</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Australia">Australia</option>
+        </select>
+        <button onclick="checkVisaRequirement()">Check Visa</button>
+        <p id="result"></p>
+    </div>
 </body>
 
 </html>
